@@ -1,0 +1,42 @@
+﻿@model prj_finalDemo.Models.TableApplications1091704
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>考生資料詳情</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.county)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.county)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.schoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.schoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suject)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.identity }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

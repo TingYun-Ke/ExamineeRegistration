@@ -1,0 +1,55 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<prj_finalDemo.Models.TableApplications1091704>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<h2>考生一覽表</h2>
+
+<h4>
+    歡迎 @Session["name"] 考生進入報名系統 !!!
+</h4>
+<br />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().county)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().schoolName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().suject)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.county)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.schoolName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.suject)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.identity }) |
+                @Html.ActionLink("Details", "Details", new { id = item.identity }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.identity })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
